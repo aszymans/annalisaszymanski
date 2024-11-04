@@ -5,32 +5,92 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensure proper scaling on mobile devices -->
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      line-height: 1.5;
+      font-family: Arial, sans-serif;
+    }
 
-{% include base_path %}
+    .publications-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
+    .publication {
+      display: flex;
+      align-items: flex-start;
+      width: 95%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .publication-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #b37f20;
+      margin: 0;
+    }
+
+    .publication-link {
+      text-decoration: none; /* Remove underline */
+      color: #b37f20; /* Keep the link in gold color */
+    }
+
+    .brackets {
+      color: black; /* Set brackets color to black */
+      font-weight: normal; /* Match with body text if different */
+    }
+
+    /* Add media query for smaller screens */
+    @media (max-width: 600px) {
+      .publications-container {
+        flex-direction: column;
+      }
+      .publication {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="publications-container">
+  <h2>Major Peer-reviewed Conference and Journals</h2>
   {% for post in site.publications reversed %}
-    {% include archive-single.html %}
+  <div class="publication">
+    <div>
+      <span class="publication-title">{{ post.title }}</span>
+      <br>{{ post.authors }}
+      <br><em>{{ post.venue }}</em>
+      <br>
+      <span class="brackets">[</span><a class="publication-link" href="{{ post.paperurl }}">Paper PDF</a><span class="brackets">]</span>
+    </div>
+  </div>
   {% endfor %}
-{% endif %}
 
+  <!-- <h2>Extended Abstracts, Posters, and Workshop Papers</h2>
+  {% for ppost in site.posterpubs reversed %}
+  <div class="publication">
+    <div>
+      <span class="publication-title">{{ ppost.title }}</span>
+      <br>{{ ppost.authors }}
+      <br><em>{{ ppost.venue }}</em>
+      <br>
+      <span class="brackets">[</span><a class="publication-link" href="{{ ppost.paperurl }}">Paper PDF</a><span class="brackets">]</span>
+    </div>
+  </div>
+  {% endfor %} -->
+</div>
 
-
+</body>
+</html>
