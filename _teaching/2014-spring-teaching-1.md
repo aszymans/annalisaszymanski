@@ -1,20 +1,10 @@
 ---
-title: "Teaching experience 1"
+title: "Human-Computer Interaction"
 collection: teaching
-type: "Undergraduate course"
 permalink: /teaching/2014-spring-teaching-1
-venue: "University 1, Department"
-date: 2014-01-01
-location: "City, Country"
+venue: "Instructor Spring 2025"
+date: 2025-01-01
+location: "Indiana, USA"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
-
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
+I am teaching an undergraduate-level course on Human-Computer Interaction (HCI). This course offers an in-depth exploration of the HCI field, covering its history, goals, principles, methodologies, successes, failures, open problems, and emerging areas. Throughout the semester, students work on a project where they apply the principles and techniques learned in the course to design, implement, and evaluate a functional interface prototype. I advise students on their projects, providing guidance and feedback to help them successfully navigate the design and implementation process.

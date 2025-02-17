@@ -18,30 +18,45 @@ author_profile: true
       font-family: Arial, sans-serif;
     }
 
+    h2 {
+      margin-top: 40px; /* Add space above the Publications title */
+    }
+
     .publications-container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-start; /* Changed from space-between to flex-start to avoid gaps */
+      gap: 15px; /* Adding space between items */
+      margin-top: 20px; /* Adding space at the top */
     }
 
     .publication {
       display: flex;
-      align-items: flex-start;
-      width: 95%;
-      margin-bottom: 10px;
-      padding: 10px;
+      flex-direction: column; /* Ensure items stack vertically */
+      width: 100%; /* Ensure publication container takes full width of the screen */
+      max-width: 600px; /* Set a max-width to avoid stretching too wide */
+      margin-bottom: 20px;
+      padding: 15px;
       border-radius: 10px;
+      background-color: #f4f4f4;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
     }
 
+    /* Ensure the clickable title has no underline */
     .publication-title {
-      font-size: 1.5em;
+      font-size: 1.1em;
       font-weight: bold;
       color: #b37f20;
-      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    .publication-title a {
+      color: inherit; /* Inherit the color from .publication-title */
+      text-decoration: none; /* Remove underline */
     }
 
     .publication-link {
-      text-decoration: none; /* Remove underline */
+      text-decoration: none; /* Remove underline from the link */
       color: #b37f20; /* Keep the link in gold color */
     }
 
@@ -50,14 +65,17 @@ author_profile: true
       font-weight: normal; /* Match with body text if different */
     }
 
+    .footnote {
+      font-size: 0.9em;
+      color: #666; /* Light gray for the footnote */
+      margin-top: 5px;
+    }
+
     /* Add media query for smaller screens */
     @media (max-width: 600px) {
       .publications-container {
-        flex-direction: column;
-      }
-      .publication {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: column; /* Stack the publications vertically on smaller screens */
+        gap: 10px; /* Reduced gap on smaller screens */
       }
     }
   </style>
@@ -69,27 +87,16 @@ author_profile: true
   {% for post in site.publications reversed %}
   <div class="publication">
     <div>
-      <span class="publication-title">{{ post.title }}</span>
+      <a href="{{ post.acm_url }}" class="publication-title"><span>{{ post.title }}</span></a> <!-- Clickable title without underline -->
       <br>{{ post.authors }}
       <br><em>{{ post.venue }}</em>
-      <br>
+      {% if post.footnote %}
+      <div class="footnote">{{ post.footnote }}</div> <!-- Conditional footnote display, no extra line breaks -->
+      {% endif %}
       <span class="brackets">[</span><a class="publication-link" href="{{ post.paperurl }}">Paper PDF</a><span class="brackets">]</span>
     </div>
   </div>
   {% endfor %}
-
-  <!-- <h2>Extended Abstracts, Posters, and Workshop Papers</h2>
-  {% for ppost in site.posterpubs reversed %}
-  <div class="publication">
-    <div>
-      <span class="publication-title">{{ ppost.title }}</span>
-      <br>{{ ppost.authors }}
-      <br><em>{{ ppost.venue }}</em>
-      <br>
-      <span class="brackets">[</span><a class="publication-link" href="{{ ppost.paperurl }}">Paper PDF</a><span class="brackets">]</span>
-    </div>
-  </div>
-  {% endfor %} -->
 </div>
 
 </body>
