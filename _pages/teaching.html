@@ -7,6 +7,24 @@ author_profile: true
 
 {% include base_path %}
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+<div class="page-container">
+  {% for post in site.teaching %}
+    <div class="teaching-entry" style="display: flex; flex-direction: row; align-items: flex-start; margin-bottom: 20px;">
+      <div class="text-container" style="flex: 1;">
+        <h2 style="color: #b37f20; margin-bottom: 5px;">{{ post.title }}</h2>
+
+        <p class="course-info" style="margin-bottom: 5px;">
+          <em>{{ post.venue }}</em><br>
+          <em>{{ post.location }}</em>
+        </p>
+
+        <p style="margin-bottom: 10px;">{{ post.excerpt }}</p>
+
+        <p>
+          <!-- Make the link look like [See Syllabus] and in gold -->
+          <a href="../files/CSE40424_Syllabus_Spring2025.docx.pdf" target="_blank" style="color: #b37f20; text-decoration: none;">[See Syllabus]</a>
+        </p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
