@@ -13,72 +13,55 @@ author_profile: true
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensure proper scaling on mobile devices -->
   <style>
-    body {
-      line-height: 1.5;
-      font-family: Arial, sans-serif;
-    }
-
-    h2 {
-      margin-top: 40px; /* Add space above the Publications title */
-    }
-
-    .publications-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start; /* Changed from space-between to flex-start to avoid gaps */
-      gap: 15px; /* Adding space between items */
-      margin-top: 20px; /* Adding space at the top */
-    }
-
     .publication {
       display: flex;
-      flex-direction: column; /* Ensure items stack vertically */
-      width: 100%; /* Ensure publication container takes full width of the screen */
-      max-width: 1000px; /* Increased max-width for a wider box */
+      flex-direction: column;
+      width: 100%;
+      max-width: 1000px;
       margin-bottom: 20px;
       padding: 15px;
       border-radius: 10px;
       background-color: #f4f4f4;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
-    /* Ensure the clickable title has no underline */
+  
     .publication-title {
       font-size: 1.1em;
       font-weight: bold;
       color: #b37f20;
-      margin-bottom: 10px;
+      margin-bottom: 5px; /* Reduced margin for tighter spacing */
     }
-
-    .publication-title a {
-      color: inherit; /* Inherit the color from .publication-title */
-      text-decoration: none; /* Remove underline */
-    }
-
+  
     .publication-link {
-      text-decoration: none; /* Remove underline from the link */
-      color: #b37f20; /* Keep the link in gold color */
+      text-decoration: none;
+      color: #b37f20;
     }
-
+  
     .brackets {
-      color: black; /* Set brackets color to black */
-      font-weight: normal; /* Match with body text if different */
+      color: black;
+      font-weight: normal;
     }
-
+  
     .footnote {
       font-size: 0.9em;
-      color: #666; /* Light gray for the footnote */
-      margin-top: 5px;
+      color: #666;
+      margin-top: 0; /* Remove margin-top to avoid extra space */
     }
-
-    /* Add media query for smaller screens */
-    @media (max-width: 600px) {
-      .publications-container {
-        flex-direction: column; /* Stack the publications vertically on smaller screens */
-        gap: 10px; /* Reduced gap on smaller screens */
-      }
+  
+    /* Add margin to the last line to reduce space */
+    .publication div:last-child {
+      margin-bottom: 0;
     }
-  </style>
+  
+    /* Prevent extra line breaks */
+    .publication br {
+      margin-bottom: 0;
+    }
+  
+    .publication div {
+      margin-bottom: 5px; /* Reduce gap between content blocks */
+    }
+  </style>  
 </head>
 <body>
 
@@ -90,7 +73,7 @@ author_profile: true
       <a href="{{ post.acm_url }}" class="publication-title"><span>{{ post.title }}</span></a> <!-- Clickable title without underline -->
       <br>{{ post.authors }}
       {% if post.footnote %}
-      <div class="footnote">{{ post.footnote }}</div> <!-- Conditional footnote display, no extra line breaks -->
+      <span class="footnote">{{ post.footnote }}</span> <!-- Conditional footnote display, no extra line breaks -->
       {% endif %}
       <br>
       <em>{{ post.venue }}</em>

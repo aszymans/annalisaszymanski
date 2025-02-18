@@ -5,7 +5,7 @@ category: manuscripts
 permalink: /publication/2023-11-01-Frontiers-daily-diet
 #excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
 date: 2025-01-01
-authors: <b>Annalisa Szymanski*</b>, Noah Ziems*, Heather A Eicher-Miller, Toby Jia-Jun Li, Meng Jiang, and Ronald A Metoyer
+authors: <b>Annalisa Szymanski*</b>, Noah Ziems*, Heather A Eicher-Miller, Toby Jia-Jun Li, Meng Jiang, and Ronald A Metoyer 
 venue: '30th International Conference on Intelligent User Interfaces (IUI 2025)'
 footnote: '*Equal Contribution'
 paperurl: 'https://arxiv.org/pdf/2410.20266'
